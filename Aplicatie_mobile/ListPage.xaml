@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Aplicatie_mobile.ListPage">
+    <ContentPage.Content xmlns:local="clr-namespace:Aplicatie_mobile">
+        <StackLayout Margin="20" >
+            <Label TextColor="DarkSalmon" FontSize="Large">Nume</Label>
+            <Editor Text="{Binding Nume}" TextColor="LightSalmon" HeightRequest="50">
+                <Editor.Behaviors>
+                    <local:ValidationBehaviour/>
+                </Editor.Behaviors>
+            </Editor>
+            <Label TextColor="DarkSalmon" FontSize="Large">Părerea ta</Label>
+            <Editor Text="{Binding Parere}" TextColor="LightSalmon" HeightRequest="50">
+                <Editor.Behaviors>
+                    <local:ValidationBehaviour/>
+                </Editor.Behaviors>
+            </Editor>
+            <Grid>
+                <Picker x:Name="picker"  SelectedItem="{Binding Clasa}" Title="Selectează clasa la care ai participat." FontSize="Large" TitleColor="DarkSalmon" HeightRequest="50">
+                    <Picker.ItemsSource TextColor="LightSalmon">
+                        <x:Array Type="{x:Type x:String}">
+                            <x:String>Zumba</x:String>
+                            <x:String>Yoga</x:String>
+                            <x:String>TRX</x:String>
+                            <x:String>Body Pump</x:String>
+                            <x:String>Pilates</x:String>
+                        </x:Array>
+                    </Picker.ItemsSource>
+                </Picker>
+            </Grid>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Button Text="Salvează" Clicked="OnSaveButtonClicked" BackgroundColor="AntiqueWhite" TextColor="DarkSalmon" />
+                <Button Grid.Column="1" Text="Șterge" Clicked="OnDeleteButtonClicked" BackgroundColor="AntiqueWhite" TextColor="DarkSalmon"/>
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
